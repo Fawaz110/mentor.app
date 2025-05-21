@@ -1,0 +1,81 @@
+<section class="px-5 py-2">
+    <header class="mb-14 relative">
+        <img class="w-full h-60 object-cover rounded-md" loading="lazy" src="assets/cover.jpg" alt="cover image">
+        <div class="absolute bg-white rounded-full p-1 bottom-0 left-5 translate-y-10">
+            <img class="aspect-square object-cover w-32 rounded-full" loading="lazy" src="assets/profile.jpg"
+                alt="profile image">
+            <span
+                class="absolute bottom-1 right-1 flex items-center justify-center bg-white rounded-full p-1 border border-slate-200 shadow-sm">
+                <i class="pi pi-verified text-green-500" style="font-size: 1.75rem;"></i>
+            </span>
+        </div>
+    </header>
+    <div class="peronal-info">
+        <div class="mb-5 border-b border-dashed border-slate-400">
+            <div class="mb-5">
+                <div class="flex items-center gap-2">
+                    <h2 class="text-2xl font-semibold">Liam Weston</h2>
+                    @if (!following()) {
+                    <button class="btn btn-main-solid text-xs" (click)="toggleFollowing()">Follow</button>
+                    }
+                    @if (following()) {
+                    <button class="btn btn-green-outline text-xs flex items-center gap-2" (click)="toggleFollowing()">
+                        <i class="pi pi-circle-on animate-pulse" style="font-size: 0.75rem;"></i>
+                        <span>Following</span>
+                    </button>
+                    }
+                </div>
+                <p class="text-sm text-slate-400">&#64;liam-weston</p>
+            </div>
+            <div class="grid grid-cols-12 gap-5 mb-5 max-sm:text-sm">
+                <div class="col-span-3 md:col-span-2 lg:col-span-1">
+                    <p class="text-slate-400 text-nowrap">Followers</p>
+                    <p class="font-semibold">16548</p>
+                </div>
+                <div class="col-span-3 md:col-span-2 lg:col-span-1">
+                    <p class="text-slate-400 text-nowrap">Following</p>
+                    <p class="font-semibold">54</p>
+                </div>
+                <div class="col-span-3 md:col-span-2 lg:col-span-1">
+                    <p class="text-slate-400 text-nowrap">Posts</p>
+                    <p class="font-semibold">24</p>
+                </div>
+                <div class="col-span-3 md:col-span-2 lg:col-span-1">
+                    <p class="text-slate-400 text-nowrap">Hourly rate</p>
+                    <p class="font-semibold">{{130 | currency }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <h2 class="text-2xl font-semibold mb-2">About</h2>
+            <p class="text-slate-400 font-light -tracking-tight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam blanditiis
+                eveniet pariatur minus temporibus deserunt voluptas praesentium commodi labore? Nulla porro optio
+                consequatur ut incidunt aut ea sapiente debitis voluptatem.</p>
+        </div>
+        <div class="flex max-sm:justify-between gap-x-10 gap-y-5 items-center mb-5">
+            <div class="social-media flex items-center gap-2">
+                <a href="#" target="_blank"><i class="pi pi-github" style="font-size: 1.25rem;"></i></a>
+                <a href="#" target="_blank"><i class="pi pi-twitter" style="font-size: 1.25rem;"></i></a>
+                <a href="#" target="_blank"><i class="pi pi-linkedin" style="font-size: 1.25rem;"></i></a>
+            </div>
+            <p class="text-slate-400 flex items-center gap-2"><i class="pi pi-map-marker"></i><span
+                    class="underline">New York, United States</span></p>
+        </div>
+        <div class="mb-5 border border-slate-200 rounded-md">
+            <div class="navigators rounded-md border mb-5">
+                <button class="btn border border-transparent duration-200 after:duration-200"
+                    routerLink="/users/id/experience" routerLinkActive="nav-active">Experience</button>
+                <button class="btn border border-transparent duration-200 after:duration-200"
+                    routerLink="/users/id/skills" routerLinkActive="nav-active">Skills</button>
+                <button class="btn border border-transparent duration-200 after:duration-200"
+                    routerLink="/users/id/reviews" routerLinkActive="nav-active">Reviews</button>
+            </div>
+            <div class="details max-h-48 mb-5 overflow-y-auto scrollable">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div class="flex flex-row-reverse">
+            <button class="btn btn-main-solid max-sm:w-full">Book mentor</button>
+        </div>
+    </div>
+</section>

@@ -1,4 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html {
+    background-color: #eee;
+    color: #3e3e3e;
+}
+
+@layer components {
+    .btn {
+        @apply px-5 py-2 max-sm:text-sm rounded-md duration-200 active:scale-95 border border-transparent;
+
+        &-main {
+            &-solid {
+                @apply text-white border-sky-500 bg-sky-500 hover:bg-transparent hover:text-sky-500;
+            }
+
+            &-outline {
+                @apply border-sky-500 text-sky-500 bg-transparent hover:bg-sky-500 hover:text-white;
+            }
+        }
+
+        &-green {
+            &-solid {
+                @apply text-white border-green-500 bg-green-500 hover:bg-transparent hover:text-green-500;
+            }
+
+            &-outline {
+                @apply border-green-500 text-green-500 bg-transparent hover:bg-green-500 hover:text-white;
+            }
+        }
+
+        &.nav-active {
+            @apply border-sky-500;
+        }
+    }
+
+    .scrollable {
+        &::-webkit-scrollbar {
+            @apply bg-transparent w-1;
+        }
+        &::-webkit-scrollbar-track {
+            @apply rounded-full;
+        }
+        &::-webkit-scrollbar-thumb {
+            @apply bg-slate-400 rounded-full shadow-sm;
+        }
+    }
+}

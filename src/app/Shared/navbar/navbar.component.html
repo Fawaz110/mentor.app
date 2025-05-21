@@ -1,0 +1,27 @@
+<nav class="bg-slate-50 py-3 px-5">
+    <div class="flex justify-between items-center gap-x-3 gap-y-2">
+        <a href="">
+            <h1 class="text-xl font-bold">Mentor</h1>
+        </a>
+        <div class="flex items-center gap-3">
+            <div class="search-bar max-sm:hidden">
+                <form>
+                    <div
+                        class="form-control overflow-hidden flex items-stretch rounded-md border bg-transparent shadow-sm">
+                        <input type="search" placeholder="search for your mentor..."
+                            class="bg-opacity-100 px-5 py-2 bg-transparent grow focus:outline-none placeholder:text-sm placeholder:duration-200 focus:placeholder:opacity-0">
+                        <button class="px-3 bg-sky-500 text-white">
+                            <i class="pi pi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <button class="sm:hidden"><i class="pi pi-search"></i></button>
+            <div class="min-h-7 min-w-px rounded-full bg-slate-200"></div>
+            <div class="actions flex items-center gap-2">
+                <button class="btn btn-main-solid" routerLink="/auth/login">Login</button>
+                <button class="btn btn-main-outline" routerLink="/auth/signup">Signup</button>
+            </div>
+        </div>
+    </div>
+</nav>
