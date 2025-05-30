@@ -1,9 +1,9 @@
-<div class="">
+<div class="max-md:p-2">
     <h2 class="text-slate-400 md:ps-5 text-sm font-semibold -tracking-tight mb-2">My mentors</h2>
     <ul>
         <li
             class="md:ps-5 py-2 group/mentor relative flex items-center gap-2 cursor-pointer hover:bg-slate-100 hover:shadow-sm duration-200">
-            <div class="inner flex items-center gap-2" routerLink="/users/id">
+            <div class="inner flex items-center gap-2 grow" routerLink="/users/id">
                 <img class="w-10 object-cover rounded-full aspect-square" src="assets/profile.jpg" alt="profile">
                 <div class="">
                     <h5 class="font-semibold -tracking-tight">Liam Weston</h5>
@@ -20,8 +20,19 @@
                     </div>
                 </div>
             </div>
-            <button
-                class="btn btn-danger-outline px-3 py-1 text-sm absolute right-2 translate-y-2 opacity-0 group-hover/mentor:opacity-100 group-hover/mentor:translate-y-0">Remove</button>
+            <div
+                class="actions flex items-center gap-2 absolute right-2 md:translate-y-3 md:opacity-0 group-hover/mentor:opacity-100 group-hover/mentor:translate-y-0 duration-200">
+                <button title="Send message"
+                    class="btn btn-main-solid flex items-center justify-center size-10 p-0 rounded-full text-sm">
+                    <!-- style="font-size: 1.5rem;" -->
+                    <i class="pi pi-comment"></i>
+                </button>
+                <button title="Remove mentor"
+                    class="btn btn-danger-outline flex items-center justify-center size-10 p-0 rounded-full text-sm">
+                    <!-- style="font-size: 1.5rem;" -->
+                    <i class="pi pi-trash"></i>
+                </button>
+            </div>
         </li>
     </ul>
     <h2 class="text-slate-400 md:ps-5 text-sm font-semibold -tracking-tight mb-2">Requests</h2>

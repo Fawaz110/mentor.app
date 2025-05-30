@@ -5,6 +5,7 @@ export const routes: Routes = [
         path: '', loadComponent: () => import('./Layouts/blank-layout/blank-layout.component').then(c => c.BlankLayoutComponent), children: [
             { path: '', redirectTo: 'discover', pathMatch: 'full' },
             { path: 'discover', loadComponent: () => import('./Components/discover/discover.component').then(c => c.DiscoverComponent) },
+            { path: 'posts/:id', loadComponent: () => import('./Components/post-details/post-details.component').then(c => c.PostDetailsComponent) },
             { path: 'following', loadComponent: () => import('./Components/following/following.component').then(c => c.FollowingComponent) },
             { path: 'mentors', loadComponent: () => import('./Components/mentors/mentors.component').then(c => c.MentorsComponent) },
             { path: 'settings', loadComponent: () => import('./Components/settings/settings.component').then(c => c.SettingsComponent) },
