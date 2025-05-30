@@ -2,103 +2,127 @@
     <app-header></app-header>
 </div> -->
 <div class="">
-    <!-- pt-16 -->
+
     <div class="min-h-screen flex">
-        <button class="md:hidden fixed bottom-20 right-5 btn btn-main-solid flex items-center justify-center size-14 rounded-full">
-            <i class="pi pi-bars"></i>
-        </button>
-        <div class="grow inline-grid grid-cols-12 gap-5">
-            <div class="md:col-span-2 ps-5 pe-2 md:shadow-md md:border-slate-400 max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:bg-white max-md:h-16 max-md:border-t max-md:flex max-md:items-center">
+        <div class="grow inline-grid grid-cols-12 md:gap-5">
+            <div
+                class="md:col-span-2 md:ps-5 md:pe-2 md:shadow-md md:border-slate-400 max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:bg-white max-md:h-20 max-md:border-t max-md:flex max-md:items-center">
                 <div class="profile max-md:hidden mt-5 pb-5 mb-5 border-b border-dashed border-slate-400">
-                    <img class="w-20 aspect-square rounded-full object-cover" src="assets/profile.jpg" alt="profile">
+                    <img class="block w-20 aspect-square rounded-full object-cover" src="assets/profile.jpg"
+                        alt="profile">
+                    <h2 class="text-xl font-semibold -tracking-tight">Liam Weston</h2>
+                    <p class="text-sm text-slate-400">Student</p>
                 </div>
                 <ul class="max-md:flex max-md:w-full max-md:items-center max-md:justify-evenly">
                     <li class="py-2">
                         <a routerLink="/discover" routerLinkActive="nav-link-active"
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <i class="pi pi-compass group-hover/nav-link:text-sky-500 duration-200"
                                 style="font-size: 1.5rem;"></i>
-                            <span class="max-md:hidden">Discover</span>
+                            <span class="max-md:text-xs">Discover</span>
                         </a>
                     </li>
                     <li class="py-2">
                         <a routerLink="/following" routerLinkActive="nav-link-active"
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <i class="pi pi-users group-hover/nav-link:text-sky-500 duration-200"
                                 style="font-size: 1.5rem;"></i>
-                            <span class="max-md:hidden">Following</span>
+                            <span class="max-md:text-xs">Following</span>
                         </a>
                     </li>
                     <li class="py-2 md:hidden">
-                        <a
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
+                        <a routerLink="/mentors" routerLinkActive="nav-link-active"
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <i class="pi pi-comments group-hover/nav-link:text-sky-500 duration-200"
                                 style="font-size: 1.5rem;"></i>
+                            <span class="max-md:text-xs">Mentors</span>
+
                         </a>
+                    </li>
+                    <li class="py-2">
+                        <button (click)="startSearch()"
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
+                            <i class="pi pi-search group-hover/nav-link:text-sky-500 duration-200"
+                                style="font-size: 1.5rem;"></i>
+                            <span class="max-md:text-xs">Search</span>
+                        </button>
                     </li>
                     <li class="py-2 md:hidden">
-                        <a
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
-                            <img class="aspect-square w-10 object-cover rounded-full" src="assets/profile.jpg" alt="">
-                        </a>
+                        <button (click)="toggleMenu()"
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
+                            <img class="aspect-square w-8 object-cover rounded-full" src="assets/profile.jpg" alt="">
+                            <span class="max-md:text-xs">Me</span>
+                        </button>
                     </li>
-                    <!-- <li class="py-2">
-                        <a
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
-                            <i class="pi pi-bars group-hover/nav-link:text-sky-500 duration-200"
-                                style="font-size: 1.5rem;"></i>
-                        </a>
-                    </li> -->
                     <li class="py-2 max-md:hidden">
-                        <a
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
+                        <a routerLink="/settings" routerLinkActive="nav-link-active"
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <i class="pi pi-cog group-hover/nav-link:text-sky-500 duration-200"
                                 style="font-size: 1.5rem;"></i>
-                            <span class="max-md:hidden">Settings</span>
+                            <span class="max-md:text-xs">Settings</span>
                         </a>
                     </li>
                     <li class="py-2 max-md:hidden">
-                        <a
-                            class="group/nav-link text-lg font-semibold -tracking-tight flex items-center gap-2 cursor-pointer">
+                        <a (click)="report()" routerLinkActive="nav-link-active"
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <i class="pi pi-flag group-hover/nav-link:text-sky-500 duration-200"
                                 style="font-size: 1.5rem;"></i>
-                            <span class="max-md:hidden">Report a problem</span>
+                            <span class="max-md:text-xs">Report a problem</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <!-- max-md:mb -->
-            <div class="col-span-12 md:col-span-7 md:py-5">
+            <div class="col-span-12 md:col-span-7 max-md:p-5">
                 <router-outlet></router-outlet>
             </div>
             <div class="max-md:hidden md:col-span-3 md:shadow-md">
                 <div class="inner py-5">
-                    <h2 class="text-slate-400 ps-5 text-sm font-semibold -tracking-tight mb-2">My mentors</h2>
-                    <ul>
-                        <li class="ps-5 py-2 group/mentor relative flex items-center gap-2 cursor-pointer hover:bg-slate-100 hover:shadow-sm duration-200">
-                            <div class="inner flex items-center gap-2" routerLink="/users/id">
-                                <img class="w-10 object-cover rounded-full aspect-square" src="assets/profile.jpg"
-                                    alt="profile">
-                                <div class="">
-                                    <h5 class="font-semibold -tracking-tight">Liam Weston</h5>
-                                    <div class="social flex items-center gap-2">
-                                        <a href="" class="text-slate-400 hover:text-slate-800 duration-200">
-                                            <i class="pi pi-github"></i>
-                                        </a>
-                                        <a href="" class="text-slate-400 hover:text-slate-800 duration-200">
-                                            <i class="pi pi-twitter"></i>
-                                        </a>
-                                        <a href="" class="text-slate-400 hover:text-slate-800 duration-200">
-                                            <i class="pi pi-linkedin"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="btn btn-danger-outline px-3 py-1 text-sm absolute right-2 translate-y-2 opacity-0 group-hover/mentor:opacity-100 group-hover/mentor:translate-y-0">Remove</button>
-                        </li>
-                    </ul>
-                    <h2 class="text-slate-400 ps-5 text-sm font-semibold -tracking-tight mb-2">Requests</h2>
+                    <app-mentors></app-mentors>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="user-menu" class="fixed md:hidden top-0 left-0 right-0 bottom-0 translate-x-full duration-200">
+        <div class="layer absolute top-0 left-0 right-0 bottom-0 bg-black/50 z-10" (click)="toggleMenu()"></div>
+        <div class="inner relative z-20 w-3/4 ms-auto bg-white h-full">
+            <div class="p-5">
+                <div class="head flex items-center gap-5 mb-5 pb-5 border-b border-dashed border-slate-400">
+                    <img class="size-20 rounded-full aspect-square object-cover" loading="lazy" src="assets/profile.jpg"
+                        alt="profile image">
+                    <div class="personal-info">
+                        <h2 class="text-xl font-semibold -tracking-tight">Liam Weston</h2>
+                        <p class="text-sm text-slate-400">Student</p>
+                    </div>
+                </div>
+                <ul>
+                    <li class="">
+                        <a class="p-2 flex items-center gap-2">
+                            <i class="pi pi-user" style="font-size: 1.5rem;"></i>
+                            <span class="text-lg -tracking-tight">Profile</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a (click)="toggleMenu()" routerLink="/settings" routerLinkActive="nav-link-active"
+                            class="p-2 flex items-center gap-2">
+                            <i class="pi pi-cog" style="font-size: 1.5rem;"></i>
+                            <span class="text-lg -tracking-tight">Settings</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a (click)="toggleMenu(); report();" routerLinkActive="nav-link-active"
+                            class="p-2 flex items-center gap-2">
+                            <i class="pi pi-flag" style="font-size: 1.5rem;"></i>
+                            <span class="text-lg -tracking-tight">Report a problem</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <button (click)="logout()" class="p-2 flex items-center gap-2 text-red-500">
+                            <i class="pi pi-sign-out" style="font-size: 1.5rem;"></i>
+                            <span class="text-lg -tracking-tight">Logout</span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

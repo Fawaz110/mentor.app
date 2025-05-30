@@ -6,6 +6,8 @@ export const routes: Routes = [
             { path: '', redirectTo: 'discover', pathMatch: 'full' },
             { path: 'discover', loadComponent: () => import('./Components/discover/discover.component').then(c => c.DiscoverComponent) },
             { path: 'following', loadComponent: () => import('./Components/following/following.component').then(c => c.FollowingComponent) },
+            { path: 'mentors', loadComponent: () => import('./Components/mentors/mentors.component').then(c => c.MentorsComponent) },
+            { path: 'settings', loadComponent: () => import('./Components/settings/settings.component').then(c => c.SettingsComponent) },
             {
                 path: 'users/:id', loadComponent: () => import('./Components/user/user.component').then(c => c.UserComponent), children: [
                     { path: '', redirectTo: 'experience', pathMatch: 'full' },
@@ -21,6 +23,12 @@ export const routes: Routes = [
             { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', loadComponent: () => import('./Components/login/login.component').then(c => c.LoginComponent) },
             { path: 'signup', loadComponent: () => import('./Components/signup/signup.component').then(c => c.SignupComponent) },
+        ]
+    },
+    {
+        path: 'support', loadComponent: () => import('./Layouts/support-layout/support-layout.component').then(c => c.SupportLayoutComponent), children: [
+            { path: '', redirectTo: 'report', pathMatch: 'full' },
+            { path: 'report', loadComponent: () => import('./Components/report/report.component').then(c => c.ReportComponent) }
         ]
     },
     { path: '**', loadComponent: () => import('./Components/not-found/not-found.component').then(c => c.NotFoundComponent) },
