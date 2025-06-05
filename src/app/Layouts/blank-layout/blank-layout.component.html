@@ -6,7 +6,7 @@
     <div class="min-h-screen flex">
         <div class="grow">
             <div
-                class="fixed md:top-0 right-0 bottom-0 left-0 md:w-64 md:ps-5 md:pe-2 md:shadow-md md:border-slate-400 max-md:fixed max-md:bg-white max-md:h-20 max-md:border-t max-md:flex max-md:items-center">
+                class="fixed md:top-0 right-0 bottom-0 left-0 overflow-y-auto md:w-64 md:ps-5 md:pe-2 md:shadow-md md:border-slate-400 max-md:fixed max-md:z-[1100] md:z-20 max-md:bg-white max-md:h-20 max-md:border-t max-md:flex max-md:items-center">
                 <div class="profile max-md:hidden mt-5 pb-5 mb-5 border-b border-dashed border-slate-400">
                     <img class="block w-20 aspect-square rounded-full object-cover" src="assets/profile.jpg"
                         alt="profile">
@@ -40,19 +40,28 @@
                         </a>
                     </li>
                     <li class="py-2">
-                        <button (click)="startSearch()"
+                        <button (click)="toggleSearchBar()"
                             class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <i class="pi pi-search group-hover/nav-link:text-sky-500 duration-200"
                                 style="font-size: 1.5rem;"></i>
                             <span class="max-md:text-xs">Search</span>
                         </button>
                     </li>
+                    <div class="hr my-3 h-px w-full bg-slate-200 max-md:hidden rounded-full"></div>
                     <li class="py-2 md:hidden">
                         <button (click)="toggleMenu()"
                             class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
                             <img class="aspect-square w-8 object-cover rounded-full" src="assets/profile.jpg" alt="">
                             <span class="max-md:text-xs">Me</span>
                         </button>
+                    </li>
+                    <li class="py-2 max-md:hidden">
+                        <a routerLink="/profile" routerLinkActive="nav-link-active"
+                            class="group/nav-link text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
+                            <i class="pi pi-user group-hover/nav-link:text-sky-500 duration-200"
+                                style="font-size: 1.5rem;"></i>
+                            <span class="max-md:text-xs">Profile</span>
+                        </a>
                     </li>
                     <li class="py-2 max-md:hidden">
                         <a routerLink="/settings" routerLinkActive="nav-link-active"
@@ -70,13 +79,63 @@
                             <span class="max-md:text-xs">Report a problem</span>
                         </a>
                     </li>
+                    <li class="py-2 max-md:hidden">
+                        <a
+                            class="group/nav-link text-red-500 text-lg font-semibold -tracking-tight flex max-md:flex-col items-center gap-2 cursor-pointer">
+                            <i class="pi pi-sign-out group-hover/nav-link:text-sky-500 duration-200"
+                                style="font-size: 1.5rem;"></i>
+                            <span class="max-md:text-xs">Logout</span>
+                        </a>
+                    </li>
                 </ul>
+            </div>
+            <div id="search-container"
+                class="search-container p-2 hidden justify-start flex-col items-center gap-2 fixed top-0 left-0 right-0 bottom-0 z-20 pt-20 duration-200">
+                <div class="layer bg-black/50 absolute top-0 left-0 right-0 bottom-0"></div>
+                <button (click)="toggleSearchBar()" class="fixed top-5 right-5 text-slate-50 z-20">
+                    <i class="pi pi-times" style="font-size: 1.5rem;"></i>
+                </button>
+                <div class="form-control w-full md:w-1/2 m-2 relative">
+                    <input class="p-2 rounded-md w-full focus-within:outline-none bg-slate-50"
+                        placeholder="search for topic you want..." type="text">
+                    <button
+                        class="btn btn-main-solid hover:bg-sky-500/80 hover:text-white absolute top-0 bottom-0 right-0 flex items-center justify-center rounded-s-none px-3"><i
+                            class="pi pi-search"></i></button>
+                </div>
+                <div class="recent-search bg-slate-800 text-slate-50 w-full md:w-1/2 rounded-md overflow-hidden z-20">
+                    <div class="inner">
+                        <p class="text-sm text-slate-400 m-2">Recent</p>
+                        <ul class="max-h-40 overflow-y-auto">
+                            <li class="hover:bg-slate-400/20 duration-200">
+                                <button class="w-full text-start flex justify-between items-center p-2">
+                                    <span>Programming</span>
+                                    <i class="pi pi-arrow-up-right"></i>
+                                </button>
+                            </li>
+                            <li class="hover:bg-slate-400/20 duration-200">
+                                <button class="w-full text-start flex justify-between items-center p-2">
+                                    <span>Azure DevOps</span>
+                                    <i class="pi pi-arrow-up-right"></i>
+                                </button>
+                            </li>
+                            <li class="hover:bg-slate-400/20 duration-200">
+                                <button class="w-full text-start flex justify-between items-center p-2">
+                                    <span>UI/UX</span>
+                                    <i class="pi pi-arrow-up-right"></i>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="flex justify-center mb-2">
+                            <i class="pi pi-spinner animate-spin" style="font-size: 1.5rem;"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- max-md:mb -->
             <div class="md:ms-64 md:mr-72">
                 <router-outlet></router-outlet>
             </div>
-            <div class="max-md:hidden md:w-72 fixed top-0 right-0 bottom-0 md:shadow-md">
+            <div class="max-md:hidden md:w-72 fixed top-0 right-0 bottom-0 md:shadow-md overflow-y-auto">
                 <div class="inner py-5">
                     <app-mentors></app-mentors>
                 </div>
@@ -97,7 +156,8 @@
                 </div>
                 <ul>
                     <li class="">
-                        <a class="p-2 flex items-center gap-2">
+                        <a class="p-2 flex items-center gap-2" (click)="toggleMenu()" routerLink="/profile"
+                            routerLinkActive="nav-link-active">
                             <i class="pi pi-user" style="font-size: 1.5rem;"></i>
                             <span class="text-lg -tracking-tight">Profile</span>
                         </a>

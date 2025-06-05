@@ -9,6 +9,11 @@ export const routes: Routes = [
             { path: 'following', loadComponent: () => import('./Components/following/following.component').then(c => c.FollowingComponent) },
             { path: 'mentors', loadComponent: () => import('./Components/mentors/mentors.component').then(c => c.MentorsComponent) },
             { path: 'settings', loadComponent: () => import('./Components/settings/settings.component').then(c => c.SettingsComponent) },
+            { path: 'settings/personal-data', loadComponent: () => import('./Components/personal-data/personal-data.component').then(c => c.PersonalDataComponent) },
+            { path: 'settings/confirm-email', loadComponent: () => import('./Components/confirm-email/confirm-email.component').then(c => c.ConfirmEmailComponent) },
+            { path: 'settings/confirm-phone', loadComponent: () => import('./Components/confirm-phone/confirm-phone.component').then(c => c.ConfirmPhoneComponent) },
+            { path: 'settings/change-password', loadComponent: () => import('./Components/change-password/change-password.component').then(c => c.ChangePasswordComponent) },
+            { path: 'profile', loadComponent: () => import('./Components/profile/profile.component').then(c => c.ProfileComponent) },
             {
                 path: 'users/:id', loadComponent: () => import('./Components/user/user.component').then(c => c.UserComponent), children: [
                     { path: '', redirectTo: 'experience', pathMatch: 'full' },

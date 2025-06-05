@@ -1,7 +1,7 @@
+import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MentorsComponent } from "../../Components/mentors/mentors.component";
-import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-blank-layout',
@@ -29,7 +29,6 @@ export class BlankLayoutComponent implements OnInit {
    */
   toggleMenu() {
     const menu = this._ElementRef.nativeElement.querySelector('#user-menu') as HTMLDivElement;
-    console.log("user menu toggled", menu);
     if (menu.classList.contains('translate-x-full'))
       menu.classList.remove('translate-x-full');
     else
@@ -39,8 +38,22 @@ export class BlankLayoutComponent implements OnInit {
   /**
    * @description This method is called when the search button is clicked.
    */
-  startSearch() {
-    console.log("Search started");
+  toggleSearchBar() {
+    var menu = this._ElementRef.nativeElement.querySelector('#search-container') as HTMLDivElement;
+
+    if (menu.classList.contains('hidden')) {
+      menu.classList.add('opacity-0');
+      menu.classList.replace('hidden', 'flex');
+      setTimeout(() => {
+        menu.classList.remove('opacity-0');
+      }, 10);
+    } else {
+      menu.classList.add('opacity-0');
+      setTimeout(() => {
+        menu.classList.replace('flex', 'hidden');
+        menu.classList.remove('opacity-0');
+      }, 200);
+    }
   }
 
   /**

@@ -1,1 +1,25 @@
-<p>settings works!</p>
+<div class="max-md:p-2">
+    <h2 class="text-slate-400 m-2 text-sm font-semibold -tracking-tight mb-2">Personal information</h2>
+    <ul class="mb-5 space-y-1">
+        <li routerLink="/settings/personal-data" class="py-2 px-4 cursor-pointer max-md:-mx-2 text-lg font-semibold -tracking-tight flex items-center gap-2">
+            <i class="pi pi-user" style="font-size: 1.5rem;"></i>
+            <span>Personal Data</span>
+        </li>
+        <li routerLink="/settings/confirm-email" class="py-2 px-4 cursor-pointer max-md:-mx-2 text-lg font-semibold -tracking-tight flex items-center gap-2">
+            <i class="pi pi-envelope" style="font-size: 1.5rem;"></i>
+            <span>Confirm email</span>
+        </li>
+        <li routerLink="/settings/confirm-phone" class="py-2 px-4 cursor-pointer max-md:-mx-2 text-lg font-semibold -tracking-tight flex items-center gap-2">
+            <i class="pi pi-phone" style="font-size: 1.5rem;"></i>
+            <span>Confirm phone number</span>
+        </li>
+    </ul>
+    <h2 class="text-slate-400 m-2 text-sm font-semibold -tracking-tight mb-2">Privacy & Security</h2>
+    <ul class="mb-5 space-y-1">
+        <li routerLink="/settings/change-password" class="py-2 px-4 cursor-pointer max-md:-mx-2 text-lg font-semibold -tracking-tight flex items-center gap-2">
+            <i class="pi pi-shield" style="font-size: 1.5rem;"></i>
+            <span>Change password</span>
+        </li>
+    </ul>
+    <app-footer></app-footer>
+</div>

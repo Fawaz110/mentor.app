@@ -1,0 +1,28 @@
+<div class="crs-container relative overflow-hidden">
+    <div class="">
+        <div class="relative mb-2 group/crs">
+            <p-carousel #pcrs [dir]="'ltr'" [value]="items" [circular]="true" [showIndicators]="false"
+                [showNavigators]="false" [responsiveOptions]="responsiveOptions">
+                <ng-template let-item #item>
+                    <div class="mb-2">
+                        <div class="">
+                            <div class="relative">
+                                <img [src]="item" [alt]="item" class="aspect-video object-cover w-full rounded-md" />
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+            <button
+                class="size-10 flex items-center justify-center rounded-full absolute top-1/2 left-0 -translate-y-1/2 -translate-x-5 opacity-0 group-hover/crs:opacity-100 group-hover/crs:-translate-x-0 duration-200 bg-slate-50 border border-slate-400"
+                (click)="pcrs.navBackward($event)">
+                <i class="pi pi-angle-left" style="font-size: 1.5rem;"></i>
+            </button>
+            <button
+                class="size-10 flex items-center justify-center rounded-full absolute top-1/2 right-0 translate-x-5 opacity-0 group-hover/crs:opacity-100 group-hover/crs:translate-x-0 duration-200 -translate-y-1/2 bg-slate-50 border border-slate-400"
+                (click)="pcrs.navForward($event)">
+                <i class="pi pi-angle-right" style="font-size: 1.5rem;"></i>
+            </button>
+        </div>
+    </div>
+</div>

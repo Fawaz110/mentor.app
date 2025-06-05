@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="inner m-2 p-2 rounded-md border border-slate-100">
+        <div class="head flex gap-2 pb-2 mb-2 border-b border-dashed border-slate-400">
+            <img routerLink="/users/id/experience" class="aspect-square object-cover size-10 rounded-full"
+                loading="lazy" src="assets/profile.jpg" alt="profile image">
+            <div class="info grow">
+                <h5 class="font-semibold">{{post.user}}</h5>
+                <p class="text-xs">{{post.date}}</p>
+            </div>
+        </div>
+        <div class="content">
+            <p class="mb-2">{{post.caption}}</p>
+            @if (post.images.length > 0) {
+            <div class="images">
+                @if (post.images.length == 1) {
+                <img class="aspect-video object-cover rounded-md" loading="lazy" [src]="post.images[0]"
+                    alt="post image">
+                }
+                @if (post.images.length > 1) {
+                <app-image-carousel [items]="post.images"></app-image-carousel>
+                }
+            </div>
+            }
+        </div>
+        <div class="actions flex items-center justify-between">
+            <button class="btn p-0 text-slate-400 flex items-center gap-2">
+                <i class="pi pi-heart" style="font-size: 1.5rem;"></i>
+                <span class="text-xs">Like</span>
+            </button>
+            <p><span class="text-sky-500">{{post.likes}} </span><span>Liked this post</span></p>
+        </div>
+    </div>
+</div>
